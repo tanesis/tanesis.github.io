@@ -2,18 +2,16 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Krokovnik 1</title>
+  <title>Krokovník 1</title>
 
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
 </head>
 
 <body>
   <!-- Simple List -->
   <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-5 offset-md-1">
 		<div id="mainList" class="list-group">
 			<div class="list-group-item"><b>(nie)som na HLTe</b></div>
 			<div class="list-group-item"><b>skladanie táboriek</b></div>
@@ -26,7 +24,7 @@
 			<div class="list-group-item"><b>deň prípravno-stretávací</b></div>
 		</div>
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-5">
 		<div id="additionalOptionsList" class="list-group sticky-top">
 			<div class="list-group-item list-group-item-secondary">OP + 4D + 4G + 2D + 1K</div>
 			<div class="list-group-item list-group-item-secondary">OP + ÚJ</div>
@@ -57,24 +55,32 @@
   </div>
 
   <!-- SCRIPTS -->
-  <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
-  <script src="js//jquery.min.js"></script>
+  <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
-  <script>
-        // Simple list
-        Sortable.create(mainList, { 
-			group: 'shared',
-			animation: 150,
-    		ghostClass: 'active'
-		});
-
-        // List with handle
-        Sortable.create(additionalOptionsList, {
+  <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+	<script>
+		var mainList = document.getElementById('mainList');
+		for (var i = mainList.children.length; i >= 0; i--) {
+			mainList.appendChild(mainList.children[Math.random() * i | 0]);
+		}
+		var optionsList = document.getElementById('additionalOptionsList');
+		for (var i = optionsList.children.length; i >= 0; i--) {
+			optionsList.appendChild(optionsList.children[Math.random() * i | 0]);
+		}
+		// Simple list
+		Sortable.create(mainList, { 
 			group: 'shared',
 			animation: 150,
 			ghostClass: 'active'
-        });
-  </script>
+		});
+
+		// List with handle
+		Sortable.create(additionalOptionsList, {
+			group: 'shared',
+			animation: 150,
+			ghostClass: 'active'
+		});
+	</script>
 
 </body>
 </html>
