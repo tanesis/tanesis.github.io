@@ -13,15 +13,33 @@
   <div class="row">
 	<div class="col-md-5 offset-md-1">
 		<div id="mainList" class="list-group">
-			<div class="list-group-item"><b>(nie)som na HLTe</b></div>
-			<div class="list-group-item"><b>skladanie táboriek</b></div>
-			<div class="list-group-item"><b>pozývanie provincministrov do služby</b></div>
-			<div class="list-group-item"><b>stal som sa členom táborky, pripravujem družinu</b></div>
-			<div class="list-group-item"><b>pozývanie rehoľníkov</b></div>
-			<div class="list-group-item"><b>schválenie posledných mien</b></div>
-			<div class="list-group-item"><b>posielanie pozvánok novicom</b></div>
-			<div class="list-group-item"><b>finalizácia denného rozpisu</b></div>
-			<div class="list-group-item"><b>deň prípravno-stretávací</b></div>
+			<div class="list-group-item"><b>(nie)som na HLTe</b>
+				<div class="list-group nested-sortable"></div>
+			</div>
+			<div class="list-group-item"><b>skladanie táboriek</b>
+				<div class="list-group nested-sortable"></div>
+			</div>
+			<div class="list-group-item"><b>pozývanie provincministrov do služby</b>
+				<div class="list-group nested-sortable"></div>
+			</div>
+			<div class="list-group-item"><b>stal som sa členom táborky, pripravujem družinu</b>
+				<div class="list-group nested-sortable"></div>
+			</div>
+			<div class="list-group-item"><b>pozývanie rehoľníkov</b>
+				<div class="list-group nested-sortable"></div>
+			</div>
+			<div class="list-group-item"><b>schválenie posledných mien</b>
+				<div class="list-group nested-sortable"></div>
+			</div>
+			<div class="list-group-item"><b>posielanie pozvánok novicom</b>
+				<div class="list-group nested-sortable"></div>
+			</div>
+			<div class="list-group-item"><b>finalizácia denného rozpisu</b>
+				<div class="list-group nested-sortable"></div>
+			</div>
+			<div class="list-group-item"><b>deň prípravno-stretávací</b>
+				<div class="list-group nested-sortable"></div>
+			</div>
 		</div>
 	</div>
 	<div class="col-md-5">
@@ -67,11 +85,25 @@
 		for (var i = optionsList.children.length; i >= 0; i--) {
 			optionsList.appendChild(optionsList.children[Math.random() * i | 0]);
 		}
+
+		// Create sortables
+		var nestedSortables = [].slice.call(document.querySelectorAll('.nested-sortable'));
+		// Loop through each nested sortable element
+		for (var i = 0; i < nestedSortables.length; i++) {
+			new Sortable(nestedSortables[i], {
+				group: 'shared',
+				animation: 150,
+				fallbackOnBody: true,
+				swapThreshold: 0.65
+			});
+		}
 		// Simple list
 		Sortable.create(mainList, { 
-			group: 'shared',
+			group: 'nested',
 			animation: 150,
-			ghostClass: 'active'
+			ghostClass: 'active',
+			fallbackOnBody: true,
+			swapThreshold: 0.65
 		});
 
 		// List with handle
