@@ -11,21 +11,6 @@
 <body>
   <!-- Simple List -->
   <div class="container-fluid">
-	<!-- <div class="row">
-		<div class="col-md-10 offset-md-1">
-			<div class="card">
-				<div class="card-body">
-					<h2 class="text-center">Príprava pred družinou</h2>
-					<p>Nižšie vidíte dva stĺpce. Ľavý stĺpec sú hlavné udalosti, 
-						ktoré treba chronologicky zoradiť tak, ako si myslíte, že prebiehajú. 
-						Predstavujú obdobie od teraz, až do začiatku letnej družiny. V pravom stĺpci 
-						sú body, ktoré patria k určitej udalosti z ľavého stĺpca. Pokúste sa ich správne 
-						priradiť.</p>
-					<img src="img/howto.gif" alt="How to" class="center-block"/>
-				</div>
-			</div>
-		</div>
-	</div> -->
 	<div class="row">
 		<div class="col-md-5 offset-md-1">
 			<div id="mainList" class="list-group sticky-top">
@@ -75,41 +60,7 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
-	<script>
-		// randomize the order of the options list
-		var optionsList = document.getElementById('additionalOptionsList');
-		for (var i = optionsList.children.length; i >= 0; i--) {
-			optionsList.appendChild(optionsList.children[Math.random() * i | 0]);
-		}
-
-		// Create sortables
-		var nestedSortables = [].slice.call(document.querySelectorAll('.nested-sortable'));
-		// Loop through each nested sortable element
-		for (var i = 0; i < nestedSortables.length; i++) {
-			new Sortable(nestedSortables[i], {
-				group: 'shared',
-				animation: 150,
-				fallbackOnBody: true,
-				swapThreshold: 0.65,
-				ghostClass: 'active'
-			});
-		}
-		// Main list with months
-		Sortable.create(mainList, { 
-			group: 'nested',
-			animation: 150,
-			fallbackOnBody: true,
-			swapThreshold: 0.65,
-			sort: false
-		});
-
-		// List with handle
-		Sortable.create(additionalOptionsList, {
-			group: 'shared',
-			animation: 150,
-			ghostClass: 'active'
-		});
-	</script>
+  <script src="js/createSortables.js"></script>
 
 </body>
 </html>
