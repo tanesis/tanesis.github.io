@@ -9,48 +9,52 @@
 </head>
 
 <body>
-  <!-- Simple List -->
   <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-10 offset-md-1">
+			<button onclick="checkCorrect()" id="checkButton" type="button" class="center-block btn btn-info btn-lg btn-block"><b>Skontroluj</b></button>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-5 offset-md-1">
 			<div id="mainList" class="list-group sticky-top">
 				<div class="list-group-item"><strong>Marec</strong>
-					<div class="list-group nested-sortable"></div>
+					<div id="nestedMarch" class="list-group nested-sortable"></div>
 				</div>
 				<div class="list-group-item"><strong>Apríl</strong>
-					<div class="list-group nested-sortable"></div>
+					<div id="nestedApril" class="list-group nested-sortable"></div>
 				</div>
 				<div class="list-group-item"><strong>Máj</strong>
-					<div class="list-group nested-sortable"></div>
+					<div id="nestedMay" class="list-group nested-sortable"></div>
 				</div>
 				<div class="list-group-item"><strong>Jún</strong>
-					<div class="list-group nested-sortable"></div>
+					<div id="nestedJune" class="list-group nested-sortable"></div>
 				</div>
 				<div class="list-group-item"><strong>Júl/August</strong>
-					<div class="list-group nested-sortable"></div>
+					<div id="nestedJulyAugust" class="list-group nested-sortable"></div>
 				</div>
 				<div class="list-group-item"><strong>Priebežne</strong>
-					<div class="list-group nested-sortable"></div>
+					<div id="nestedContinuous" class="list-group nested-sortable"></div>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-5">
 			<div id="additionalOptionsList" class="list-group sticky-top">
-				<div class="list-group-item list-group-item-secondary">nie som na HLTe, ale mal/a som byť</div>
-				<div class="list-group-item list-group-item-secondary">skladanie táboriek</div>
-				<div class="list-group-item list-group-item-secondary">pozývanie do služby</div>
-				<div class="list-group-item list-group-item-secondary">som na náhradnom HLTe</div>
-				<div class="list-group-item list-group-item-secondary">schválenie posledných mien</div>
-				<div class="list-group-item list-group-item-secondary">posielanie posledných pozvánok</div>
-				<div class="list-group-item list-group-item-secondary">denný rozpis</div>
-				<div class="list-group-item list-group-item-secondary">deň prípravno-stretávací</div>
-				<div class="list-group-item list-group-item-secondary">družina</div>
-				<div class="list-group-item list-group-item-secondary">vymýšľanie mien</div>
-				<div class="list-group-item list-group-item-secondary">posielanie pozvánok</div>
-				<div class="list-group-item list-group-item-secondary">prihlasovanie a pozývanie rehoľníkov</div>
-				<div class="list-group-item list-group-item-secondary">táborkové stretnutia a tímbildingy</div>
-				<div class="list-group-item list-group-item-secondary">tovarišstvá</div>
-				<div class="list-group-item list-group-item-secondary">chodia dotazníky novicov</div>
+				<div data-sortable-id="1-1" class="list-group-item list-group-item-action list-group-item-secondary">nie som na HLTe, ale mal/a som byť</div>
+				<div data-sortable-id="2-1" class="list-group-item list-group-item-action list-group-item-secondary">skladanie táboriek</div>
+				<div data-sortable-id="2-2" class="list-group-item list-group-item-action list-group-item-secondary">pozývanie do služby</div>
+				<div data-sortable-id="3-1" class="list-group-item list-group-item-action list-group-item-secondary">som na náhradnom HLTe</div>
+				<div data-sortable-id="4-1" class="list-group-item list-group-item-action list-group-item-secondary">schválenie posledných mien</div>
+				<div data-sortable-id="4-2" class="list-group-item list-group-item-action list-group-item-secondary">posielanie posledných pozvánok</div>
+				<div data-sortable-id="4-3" class="list-group-item list-group-item-action list-group-item-secondary">denný rozpis</div>
+				<div data-sortable-id="5-1" class="list-group-item list-group-item-action list-group-item-secondary">deň prípravno-stretávací</div>
+				<div data-sortable-id="5-2" class="list-group-item list-group-item-action list-group-item-secondary">družina</div>
+				<div data-sortable-id="6-1" class="list-group-item list-group-item-action list-group-item-secondary">vymýšľanie mien</div>
+				<div data-sortable-id="6-2" class="list-group-item list-group-item-action list-group-item-secondary">posielanie pozvánok</div>
+				<div data-sortable-id="6-3" class="list-group-item list-group-item-action list-group-item-secondary">prihlasovanie a pozývanie rehoľníkov</div>
+				<div data-sortable-id="6-4" class="list-group-item list-group-item-action list-group-item-secondary">táborkové stretnutia a tímbildingy</div>
+				<div data-sortable-id="6-5" class="list-group-item list-group-item-action list-group-item-secondary">tovarišstvá</div>
+				<div data-sortable-id="6-6" class="list-group-item list-group-item-action list-group-item-secondary">chodia dotazníky novicov</div>
 			</div>
 		</div>
 	</div>
@@ -61,6 +65,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
   <script src="js/createSortables.js"></script>
+  <script type="text/javascript" src="js/check.js"></script>
 
 </body>
 </html>
