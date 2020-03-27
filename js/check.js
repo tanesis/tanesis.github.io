@@ -1,5 +1,3 @@
-console.log("check.js");
-
 const nestedQuery = '.nested-sortable';
 const identifier = 'sortableId';
 const root = document.getElementById('mainList');
@@ -22,8 +20,6 @@ function checkCorrect() {
     }
     let incorrectSet = difference(allSet, correctSet);
 
-    console.log("Correct: " + correctSet.size);
-    console.log("Incorrect: " + incorrectSet.size);
     colorListItems(correctSet, incorrectSet);
 }
 
