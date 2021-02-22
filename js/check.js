@@ -20,7 +20,23 @@ function checkCorrect() {
     }
     let incorrectSet = difference(allSet, correctSet);
 
-    colorListItems(correctSet, incorrectSet);
+    updateProgressBar(correctSet.size, incorrectSet.size);
+    // colorListItems(correctSet, incorrectSet);
+}
+
+function updateProgressBar(correctCount, incorrectCount) {
+    var totalCount = correctCount + incorrectCount;
+    var bar = document.getElementById("resultBar");
+    var width = parseInt(correctCount / totalCount * 100);
+
+    bar.setAttribute("aria-valuemax", totalCount);
+    bar.setAttribute("aria-valuenow", correctCount);
+    if (correctCount < 1) {
+        bar.style.width = "5%";
+    } else {
+        bar.style.width = width.toString() + "%";
+    }
+    bar.innerHTML = (correctCount.toString() + "/" + totalCount.toString()).bold();
 }
 
 function colorListItems(correct, incorrect) {
